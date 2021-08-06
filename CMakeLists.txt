@@ -117,7 +117,7 @@ SET(SOURCES
 #######################################################
 ## Find required dependencies
 find_package( Eigen3 REQUIRED )
-find_package( Sophus REQUIRED )
+find_package( Sophus REQUIRED HINTS "${CMAKE_CURRENT_SOURCE_DIR}/../builds/Sophus")
 find_package( GLog REQUIRED )
 
 find_package(TinyXML2 REQUIRED)
@@ -134,6 +134,7 @@ list( APPEND CALIBU_INC
 
 list( APPEND USER_INC   ${EIGEN3_INCLUDE_DIR} )
 list( APPEND USER_INC   ${Sophus_INCLUDE_DIRS} )
+list( APPEND USER_INC   ${CMAKE_CURRENT_SOURCE_DIR}/../Sophus/include )
 
 #######################################################
 ## Find optional dependencies
